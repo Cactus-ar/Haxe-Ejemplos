@@ -118,5 +118,37 @@ class HaxeControl{
         var filtrada_y_modificada_n = [for (val in n) if (val != "Pato") val += "!"];
         trace(filtrada_y_modificada_n + " es el valor de filtrada_y_modificada_n");
 
+        //////////////////////////////////////////////////////////////////
+        // Instruccion Switch (Por tipos de valor asignado)
+        //////////////////////////////////////////////////////////////////
+        trace("*-*-* Instrucción Switch *-*-*");
+
+        /*
+           La instrucción Switch en Haxe es muy potente. Además de trabajar con
+           valores basicos como cadenas o enteros, tambien pueden trabajar sobre
+           tipos de datos algebraicos generales en estructuras tipo enum
+	   Aquí un ejemplo basico:
+
+         */
+        var nombre_de_mi_gato = "Cactus";
+        var juguete_favorito  = "";
+
+        switch(nombre_de_mi_gato){
+
+            case "Michi"   : juguete_favorito = "Pescadito";
+            case "Cactus"  : juguete_favorito = "Pelota";
+            case "Dot"     : juguete_favorito = "Raton";
+            default        : juguete_favorito = "Algun otro juguete";
+ 
+           // case _       : "Algun otro juguete";
+        }
+
+        // El  "case_" es el valor "comodin"
+        // que coincidirá con cualquier cosa
+
+        trace("Mi gato se llama " + nombre_de_mi_gato
+                + ", y su juguete favorito es: "
+                + juguete_favorito);
+
 	}
 }
