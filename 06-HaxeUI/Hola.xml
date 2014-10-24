@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <meta title="Hola Mundo" package="" version="1.0.0" company="" />
+ 
+    <app main="Hola" file="Hola" path="bin" />
+     
+    <window background="#FFFFFF" fps="60" />
+    <window width="320" height="200" unless="mobile" />
+    <window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+     
+    <!-- classpath, haxe libs -->
+    <source path="." />
+    <haxelib name="openfl" />
+    <haxelib name="actuate" />
+    <haxelib name="hscript" />
+    <haxelib name="haxeui" />
+</project>
