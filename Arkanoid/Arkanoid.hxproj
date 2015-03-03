@@ -39,6 +39,8 @@
   <compileTargets>
     <compile path="src\Main.hx" />
     <compile path="src\Plataforma.hx" />
+    <compile path="src\Bola.hx" />
+    <compile path="src\Ladrillo.hx" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
