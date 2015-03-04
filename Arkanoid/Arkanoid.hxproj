@@ -18,18 +18,17 @@
   <classpaths>
     <class path="C:\HaxeToolkit\haxe\lib\openfl\2,2,7" />
     <class path="C:\HaxeToolkit\haxe\lib\lime\2,1,2" />
-    <class path="C:\HaxeToolkit\haxe\lib\actuate\1,8,2" />
     <class path="src" />
     <class path="bin\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="openfl=2.2.7&#xA;lime=2.1.2&#xA;actuate=1.8.2&#xA;tools=2.1.2&#xA;no-compilation&#xA;openfl-flash&#xA;web" />
+    <option directives="openfl=2.2.7&#xA;lime=2.1.2&#xA;tools=2.1.2&#xA;no-compilation&#xA;openfl-flash&#xA;web" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="-swf-version 11.2&#xA;-debug " />
+    <option additional="-swf-version 11.2" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

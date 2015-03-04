@@ -15,11 +15,12 @@
 	<!-- classpath, haxe libs -->
 	<source path="src" />
 	<haxelib name="openfl" />
-	<haxelib name="actuate" />
+	
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
 	<assets path="assets/img" rename="img" />
+	<assets path="assets/Audio" rename="audio"  type="audio" />
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->
