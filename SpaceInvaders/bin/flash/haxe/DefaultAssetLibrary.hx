@@ -46,12 +46,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/alien1x.png", __ASSET__img_alien1x_png);
 		type.set ("img/alien1x.png", AssetType.IMAGE);
+		className.set ("img/alien1y.png", __ASSET__img_alien1y_png);
+		type.set ("img/alien1y.png", AssetType.IMAGE);
+		className.set ("img/enemyShip.png", __ASSET__img_enemyship_png);
+		type.set ("img/enemyShip.png", AssetType.IMAGE);
+		className.set ("img/explosion.png", __ASSET__img_explosion_png);
+		type.set ("img/explosion.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
 		
 		var id;
 		id = "img/alien1x.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/alien1y.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/enemyShip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/explosion.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -70,6 +88,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		#end
 		
 		#if (windows || mac || linux)
@@ -78,6 +99,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/alien1x.png", __ASSET__img_alien1x_png);
 		type.set ("img/alien1x.png", AssetType.IMAGE);
+		
+		className.set ("img/alien1y.png", __ASSET__img_alien1y_png);
+		type.set ("img/alien1y.png", AssetType.IMAGE);
+		
+		className.set ("img/enemyShip.png", __ASSET__img_enemyship_png);
+		type.set ("img/enemyShip.png", AssetType.IMAGE);
+		
+		className.set ("img/explosion.png", __ASSET__img_explosion_png);
+		type.set ("img/explosion.png", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -650,11 +680,17 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__img_alien1x_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_alien1y_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_enemyship_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_explosion_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
 
 #if openfl
+
+
+
 
 
 #end
@@ -669,6 +705,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:bitmap("assets/img/alien1x.png") class __ASSET__img_alien1x_png extends lime.graphics.Image {}
+@:bitmap("assets/img/alien1y.png") class __ASSET__img_alien1y_png extends lime.graphics.Image {}
+@:bitmap("assets/img/enemyShip.png") class __ASSET__img_enemyship_png extends lime.graphics.Image {}
+@:bitmap("assets/img/explosion.png") class __ASSET__img_explosion_png extends lime.graphics.Image {}
 
 
 

@@ -29,6 +29,18 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("img/alien1y.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/enemyShip.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/explosion.png");
+		types.push (AssetType.IMAGE);
+		
+		
 		
 		if (config.assetsPrefix != null) {
 			

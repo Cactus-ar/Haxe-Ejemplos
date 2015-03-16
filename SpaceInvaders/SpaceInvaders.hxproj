@@ -27,7 +27,7 @@
     <option directives="openfl=2.2.7&#xA;lime=2.1.2&#xA;actuate=1.8.2&#xA;tools=2.1.2&#xA;no-compilation&#xA;openfl-flash&#xA;web" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
-    <option mainClass="Misil" />
+    <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
     <option additional="-swf-version 11.2&#xA;-debug " />
   </build>
