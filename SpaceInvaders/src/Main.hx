@@ -36,8 +36,10 @@ class Main extends Sprite
 	private var orientacion:Bool = true;
 	private var Alien_Dispara:Bool;
 	private var paso:Int = 0;
+	private var temporizador = new Timer (1000);
 	private var tempo_1:Int = 0;
 	private var tempo_2:Int = 0;
+	private var tempo_3:Int = 0;
 	
 	
 
@@ -128,10 +130,8 @@ class Main extends Sprite
 		stage.addEventListener(KeyboardEvent.KEY_UP, Tecla_Soltada);
 		
 		//Timer
-		var timer = new Timer (1000);
-        timer.addEventListener (TimerEvent.TIMER, Tiempo);
-        timer.start ();
-		
+        temporizador.addEventListener (TimerEvent.TIMER, Tiempo);
+        temporizador.start ();
 		
 		// Loop
 		this.addEventListener(Event.ENTER_FRAME, En_CadaCuadro);
@@ -142,7 +142,7 @@ class Main extends Sprite
 	
 	private function En_CadaCuadro(evento:Event):Void {
 		
-		if (Disparo == true) //Disparo de nuestra nave
+		if (Disparo == true) 			//Disparo de nuestra nave
 		{
 			Misil1.y = Misil1.y -6;		//velocidad del disparo
 			Permite_disparo = false;	//no permite otro hasta que haya salido de la pantalla
@@ -198,11 +198,28 @@ class Main extends Sprite
 	
 		if (Alien_Dispara) {			//Disparan los aliens contra nuestra nave
 			Misil_Alien.y = Misil_Alien.y + 6;
+			Estamos_Muertos();
 		}
 	}
 	
 	
-	
+	private function Estamos_Muertos()
+	{
+		if (Misil_Alien.hitTestObject(Nave1)) //Si fuimos impactados..
+		{
+			explota.x = Nave1.x;
+			explota.y = Nave1.y;
+			Nave1.alpha = 0;
+			explota.alpha = 1;
+			Misil1.alpha = 0;
+			temporizador.stop();
+			stage.removeEventListener(TimerEvent.TIMER, Tiempo);
+			stage.removeEventListener(Event.ENTER_FRAME, En_CadaCuadro);
+			stage.removeEventListener(KeyboardEvent.KEY_DOWN, Tecla_Presionada);
+			stage.removeEventListener(KeyboardEvent.KEY_UP, Tecla_Soltada);
+			
+		}
+	}
 	
 	
 	private function Impacto()
@@ -224,18 +241,21 @@ class Main extends Sprite
 				
 				}
 			}
+			
 		}
 		
 		if (Misil1.hitTestObject(Alien2))		//si el misil impacta a la supernave
 		{
 			explota.x = Alien2.x;		//mostramos la explosion
 			explota.y = Alien2.y;
-			explota.alpha = 1;
+			explota.alpha = 1;			//Mostramos la explosion
 			Alien2.alpha = 0;			//escondemos la supernave
 			Misil1.alpha = 0;			//el misil
-			Disparo = false;
+			Disparo = false;			//flag de control
 			Permite_disparo = true;		//permite disparar nuevamente
 		}
+		
+		
 		
 	}
 	
@@ -244,6 +264,8 @@ class Main extends Sprite
 
 		 ++tempo_1; 			//contador de segundos para la salida del Boss
 		 ++tempo_2;				//contador de segundos para el disparo alien.
+		 ++tempo_3;				//contador de segundos para que los alien bajen.
+		 
 		 explota.alpha = 0;		//Cada segundo esconde la explosion del impacto.
 		
 		if (tempo_1 == 10)		//Cada 10 segundos sale el otra supernave
@@ -261,8 +283,10 @@ class Main extends Sprite
 			Misil_Alien.y = Invasion[enemigo_disparando].y;		 //en las coordenadas del alien seleccionado
 			tempo_2 = 0;
 			Alien_Dispara = true;
-			
 		}
+		
+	
+		
         for (i in 0...Invasion.length) //Recorremos el Array
 		{
 					
@@ -281,12 +305,20 @@ class Main extends Sprite
 						Invasion[i].x += 5;
 					}else
 					{
-						Invasion[i].x -= 5;
-						
+						Invasion[i].x -= 5;			
 					}
-		
+					
+					if (tempo_3 == 5)		//cada 5 segundos los alien se acercan
+					{
+						Invasion[i].y = Invasion[i].y + 10;
+					}
+					
 		}
 		
+				if (tempo_3 == 5) //Si el temporizador llegó a 5 que vuelva a 0
+					{
+					tempo_3 = 0;	
+					}
 
     }
 	

@@ -18,9 +18,6 @@ class Nave extends Sprite
 		this.graphics.drawRect (27, 6, 6, 6);
 		this.graphics.drawRect (16, 12, 28, 4);
 		this.graphics.drawRect (14, 16, 32, 6);
-
-		
-		
 		this.graphics.endFill();
 	}
 	
