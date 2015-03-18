@@ -41,6 +41,26 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("audio/disparo.mp3");
+		types.push (AssetType.MUSIC);
+		
+		
+		urls.push ("audio/explosion.mp3");
+		types.push (AssetType.MUSIC);
+		
+		
+		urls.push ("audio/marciano1.mp3");
+		types.push (AssetType.MUSIC);
+		
+		
+		urls.push ("audio/marciano2.mp3");
+		types.push (AssetType.MUSIC);
+		
+		
+		urls.push ("audio/ufo1.mp3");
+		types.push (AssetType.MUSIC);
+		
+		
 		
 		if (config.assetsPrefix != null) {
 			

@@ -7,6 +7,9 @@ import openfl.events.Event;
 import openfl.events.TimerEvent;
 import openfl.utils.Timer;
 import Std.random;
+import openfl.media.Sound;
+import openfl.Assets;
+
 
 
 /**
@@ -41,7 +44,12 @@ class Main extends Sprite
 	private var tempo_2:Int = 0;
 	private var tempo_3:Int = 0;
 	
-	
+	//Sonidos
+	private var S_Disparo:Sound = new Sound();
+	private var S_Explota: Sound = new Sound();
+	private var S_Marciano:Sound = new Sound();
+	private var S_Platillo:Sound = new Sound();
+	private var S_Marciano_Mueve:Sound = new Sound();
 
 	
 	public function new() 
@@ -54,6 +62,12 @@ class Main extends Sprite
 		Sale_Boss = false;
 		Alien_Dispara = false;
 		
+		//Sonidos
+		S_Disparo = Assets.getSound("audio/disparo.mp3");
+		S_Marciano = Assets.getSound("audio/marciano2.mp3");
+		S_Marciano_Mueve = Assets.getSound("audio/marciano1.mp3");
+		S_Platillo = Assets.getSound("audio/ufo1.mp3");
+		S_Explota = Assets.getSound("audio/explosion.mp3");
 		
 		//Dibujo de nuestra nave
 		Nave1 = new Nave();
@@ -177,6 +191,7 @@ class Main extends Sprite
 			
 			if (Permite_disparo == true) //si se puede disparar..
 			{
+				S_Disparo.play();			//Sonido de Disparo
 				Misil1.x = Nave1.x + 28; //movemos nuestro misil
 				Misil1.y = 460;
 				Disparo = true;	//chequeamos por colisiones y salidas de pantalla
@@ -207,12 +222,13 @@ class Main extends Sprite
 	{
 		if (Misil_Alien.hitTestObject(Nave1)) //Si fuimos impactados..
 		{
-			explota.x = Nave1.x;
-			explota.y = Nave1.y;
-			Nave1.alpha = 0;
-			explota.alpha = 1;
-			Misil1.alpha = 0;
-			temporizador.stop();
+			explota.x = Nave1.x;		//La imagen de la explosion posicionada
+			explota.y = Nave1.y;		//donde se encontraba nuestra nave
+			Nave1.alpha = 0;			//Escondemos la nave
+			explota.alpha = 1;			//mostramos la explosion
+			Misil1.alpha = 0;			//escondemos el misil
+			S_Explota.play();			//Sonido de explosion
+			temporizador.stop();		//De aquí para abajo paramos todo.
 			stage.removeEventListener(TimerEvent.TIMER, Tiempo);
 			stage.removeEventListener(Event.ENTER_FRAME, En_CadaCuadro);
 			stage.removeEventListener(KeyboardEvent.KEY_DOWN, Tecla_Presionada);
@@ -237,6 +253,7 @@ class Main extends Sprite
 					Invasion.splice(i, 1); // y del Array
 					Misil1.alpha = 0;		//escondemos el misil que impactó
 					Disparo = false;		//flag de control
+					S_Marciano.play();		//Sonido de marciano impactado
 					Permite_disparo = true;	//permitimos disparar nuevamente
 				
 				}
@@ -249,6 +266,7 @@ class Main extends Sprite
 			explota.x = Alien2.x;		//mostramos la explosion
 			explota.y = Alien2.y;
 			explota.alpha = 1;			//Mostramos la explosion
+			S_Explota.play();			//Sonido de explosion
 			Alien2.alpha = 0;			//escondemos la supernave
 			Misil1.alpha = 0;			//el misil
 			Disparo = false;			//flag de control
@@ -261,7 +279,7 @@ class Main extends Sprite
 	
 	 private function Tiempo (event:TimerEvent):Void 
 	 {
-
+		 S_Marciano_Mueve.play();	//Sonido de los marcianos mociendose por pantalla
 		 ++tempo_1; 			//contador de segundos para la salida del Boss
 		 ++tempo_2;				//contador de segundos para el disparo alien.
 		 ++tempo_3;				//contador de segundos para que los alien bajen.
@@ -271,6 +289,7 @@ class Main extends Sprite
 		if (tempo_1 == 10)		//Cada 10 segundos sale el otra supernave
 		{
 			tempo_1 = 0;		//volvemos a contar de 1 a 10 segundos
+			S_Platillo.play();	//Sonido del platillo
 			Alien2.alpha = 1;
 			Sale_Boss = true;
 		}

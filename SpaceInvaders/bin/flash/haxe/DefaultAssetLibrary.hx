@@ -52,6 +52,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/enemyShip.png", AssetType.IMAGE);
 		className.set ("img/explosion.png", __ASSET__img_explosion_png);
 		type.set ("img/explosion.png", AssetType.IMAGE);
+		className.set ("audio/disparo.mp3", __ASSET__audio_disparo_mp3);
+		type.set ("audio/disparo.mp3", AssetType.MUSIC);
+		className.set ("audio/explosion.mp3", __ASSET__audio_explosion_mp3);
+		type.set ("audio/explosion.mp3", AssetType.MUSIC);
+		className.set ("audio/marciano1.mp3", __ASSET__audio_marciano1_mp3);
+		type.set ("audio/marciano1.mp3", AssetType.MUSIC);
+		className.set ("audio/marciano2.mp3", __ASSET__audio_marciano2_mp3);
+		type.set ("audio/marciano2.mp3", AssetType.MUSIC);
+		className.set ("audio/ufo1.mp3", __ASSET__audio_ufo1_mp3);
+		type.set ("audio/ufo1.mp3", AssetType.MUSIC);
 		
 		
 		#elseif html5
@@ -73,6 +83,26 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "audio/disparo.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "audio/explosion.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "audio/marciano1.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "audio/marciano2.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "audio/ufo1.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		
 		
 		var assetsPrefix = ApplicationMain.config.assetsPrefix;
@@ -85,6 +115,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
+		
+		
+		
+		
 		
 		
 		
@@ -108,6 +143,21 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/explosion.png", __ASSET__img_explosion_png);
 		type.set ("img/explosion.png", AssetType.IMAGE);
+		
+		className.set ("audio/disparo.mp3", __ASSET__audio_disparo_mp3);
+		type.set ("audio/disparo.mp3", AssetType.MUSIC);
+		
+		className.set ("audio/explosion.mp3", __ASSET__audio_explosion_mp3);
+		type.set ("audio/explosion.mp3", AssetType.MUSIC);
+		
+		className.set ("audio/marciano1.mp3", __ASSET__audio_marciano1_mp3);
+		type.set ("audio/marciano1.mp3", AssetType.MUSIC);
+		
+		className.set ("audio/marciano2.mp3", __ASSET__audio_marciano2_mp3);
+		type.set ("audio/marciano2.mp3", AssetType.MUSIC);
+		
+		className.set ("audio/ufo1.mp3", __ASSET__audio_ufo1_mp3);
+		type.set ("audio/ufo1.mp3", AssetType.MUSIC);
 		
 		
 		if (useManifest) {
@@ -683,11 +733,21 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_alien1y_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_enemyship_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_explosion_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__audio_disparo_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__audio_explosion_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__audio_marciano1_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__audio_marciano2_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__audio_ufo1_mp3 extends flash.media.Sound { }
 
 
 #elseif html5
 
 #if openfl
+
+
+
+
+
 
 
 
@@ -708,6 +768,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:bitmap("assets/img/alien1y.png") class __ASSET__img_alien1y_png extends lime.graphics.Image {}
 @:bitmap("assets/img/enemyShip.png") class __ASSET__img_enemyship_png extends lime.graphics.Image {}
 @:bitmap("assets/img/explosion.png") class __ASSET__img_explosion_png extends lime.graphics.Image {}
+@:sound("assets/Audio/disparo.mp3") class __ASSET__audio_disparo_mp3 extends lime.audio.AudioSource {}
+@:sound("assets/Audio/explosion.mp3") class __ASSET__audio_explosion_mp3 extends lime.audio.AudioSource {}
+@:sound("assets/Audio/marciano1.mp3") class __ASSET__audio_marciano1_mp3 extends lime.audio.AudioSource {}
+@:sound("assets/Audio/marciano2.mp3") class __ASSET__audio_marciano2_mp3 extends lime.audio.AudioSource {}
+@:sound("assets/Audio/ufo1.mp3") class __ASSET__audio_ufo1_mp3 extends lime.audio.AudioSource {}
 
 
 
