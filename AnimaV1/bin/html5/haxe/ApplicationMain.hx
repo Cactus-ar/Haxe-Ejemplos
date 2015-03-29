@@ -108,7 +108,7 @@ class ApplicationMain {
 			company: "Gabriel",
 			depthBuffer: false,
 			file: "AnimaV1",
-			fps: Std.int (30),
+			fps: Std.int (40),
 			fullscreen: false,
 			height: Std.int (480),
 			orientation: "",
