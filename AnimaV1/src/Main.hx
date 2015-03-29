@@ -33,7 +33,7 @@ class Main extends Sprite
 
 		//Leer el archivo XML
 		var contenido = Xml.parse(archivo);
-		var fasta = new Fast(contenido.firstElement());
+		var fasta = new Fast(contenido.firstElement());	//Posicionamos el puntero en el primer elemento
 		var k_dato:Int = 0;
 				
 		for (k_dato in fasta.elements) 
@@ -59,7 +59,7 @@ class Main extends Sprite
 	{
 		++cuadros;
 		
-		switch (cuadros) 
+		switch (cuadros) //Animación: El bucle muestra la imagen acorde a la cantidad de cuadros
 		{
 		
 		case 10 | 15: Actor.drawTiles(graphics, [150, 150, 0], false);
@@ -71,7 +71,7 @@ class Main extends Sprite
 		
 		}
 		
-		if (cuadros > 45) cuadros = 0;
+		if (cuadros > 45) cuadros = 0; //Si es mayor a 45 vuelve a empezar.
 		
 		
 		
