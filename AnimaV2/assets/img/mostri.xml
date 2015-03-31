@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="mostri.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="dino1.png"	x="0"	y="132"	width="135"	height="131" frameX="-0" frameY="-7" frameWidth="153" frameHeight="147"/>
+	<SubTexture name="dino2.png"	x="0"	y="264"	width="135"	height="131" frameX="-0" frameY="-7" frameWidth="153" frameHeight="147"/>
+	<SubTexture name="dino3.png"	x="136"	y="0"	width="135"	height="131" frameX="-0" frameY="-7" frameWidth="153" frameHeight="147"/>
+	<SubTexture name="dino4.png"	x="0"	y="0"	width="135"	height="131" frameX="-0" frameY="-7" frameWidth="153" frameHeight="147"/>
+</TextureAtlas>
