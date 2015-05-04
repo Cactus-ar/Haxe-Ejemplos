@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Widget id="'root'" w="800" h="600">
+	 
+	<VBox 
+		w="780"
+		h="580"
+		left ="10"
+		top = "10"
+		skin:Paint-border="2" 
+		skin:Paint-color="0x000000" 
+		skin:Paint-borderColor="0xFC9C00"
+		skin:Paint-alpha="1"
+		childPadding="20"
+		>
+	
+		
+	<Bmp
+	id = "'Logo'"
+	src= "'img/sokologo.png'"
+	alpha="0.5"
+	on-click = " #Bmp(Logo).alpha = 1;
+	"/>
+	
+	<Button
+	id = "'Nuevo'"
+	top ="30"
+	skin:Paint-color="0xFC9C00"
+	text="'Nuevo'" 
+	on-click="Menu_Opciones('Nuevo');"
+	/>
+	
+	<Button 
+	top ="30" 
+	text="'Niveles'"
+	skin:Paint-color="0xFC9C00"
+	on-click="Menu_Opciones('Niveles');"
+	/>
+	
+	<Button 
+	top ="30" 
+	text="'Opciones'"
+	skin:Paint-color="0xFC9C00"
+	on-click="Menu_Opciones('Opciones');"
+	/>
+	
+	
+	
+</VBox>	
+</Widget>
