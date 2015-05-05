@@ -26,7 +26,7 @@
 	top ="30"
 	skin:Paint-color="0xFC9C00"
 	text="'Nuevo'" 
-	on-click="Menu_Opciones('Nuevo');"
+	on-click="Menu_Opciones('Nuevo'); $this.wparent.free();"
 	/>
 	
 	<Button 

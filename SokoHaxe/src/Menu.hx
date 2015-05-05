@@ -31,7 +31,7 @@ class Menu extends Sprite
 		
 		switch (Opcion) 
 		{
-			case "Nuevo" : trace ("Seleccion Nuevo");
+			case "Nuevo" : trace ("nuevo");
 			
 			case "Niveles" : trace ("Seleccion Niveles");
 			
@@ -41,6 +41,5 @@ class Menu extends Sprite
 		} 
 		
 	}
-	
 		
 }

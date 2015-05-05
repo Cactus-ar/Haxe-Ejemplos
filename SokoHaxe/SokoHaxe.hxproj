@@ -43,6 +43,9 @@
     <compile path="src\Main.hx" />
     <compile path="src\Menu.hx" />
     <compile path="src\Cargador.hx" />
+    <compile path="src\Nivel.hx" />
+    <compile path="src\Bloque.hx" />
+    <compile path="src\Personaje.hx" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>

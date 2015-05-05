@@ -6,10 +6,13 @@ import Std;
  * ...
  * @author Gabriel
  */
+
+ 
 class Cargador
 {
 	var archivo = Assets.getText("lvl/Original.slc");
 	public var Hileras = new Array();
+	public var Ancho: Int;
 	
 public function new() 
 {	
@@ -22,22 +25,27 @@ public function new()
 		var fasta = new Fast(contenido.firstElement());
 		var Nivel:Int = 0;
 		
+		var Hilera:Int = 0;
+		
 		for (Nivel in fasta.node.LevelCollection.elements)
 		{
-			
-			var mapa = fasta.node.LevelCollection.node.Level.elements;
-			var Hilera:Int = 0;
-			
+		
 			if (lvl_numero == Std.parseInt(Nivel.att.Id)) {
-				trace (Nivel.att.Id);
-				for (Hilera in mapa)
+				//trace (Nivel.att.Id);
+				Ancho = Std.parseInt(Nivel.att.Width); //Retorna el ancho del mapa para centrarlo
+				
+				for (Hilera in Nivel.elements)
 				{
-					Hileras.push(Hilera.innerData);
-					//trace (Hilera.innerData);
+					Hileras.push(Hilera.innerData);	
 				}	
+				
 			}
+			Nivel.elements.next;
+			
+			
 		}
 		return Hileras;
+		
 	}
 
 
