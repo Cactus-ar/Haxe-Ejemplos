@@ -1,6 +1,7 @@
 package;
 import haxe.xml.Fast;
 import openfl.Assets;
+import openfl.display.Sprite;
 import Std;
 /**
  * ...
@@ -8,15 +9,16 @@ import Std;
  */
 
  
-class Cargador
+class Cargador extends Sprite
 {
 	var archivo = Assets.getText("lvl/Original.slc");
 	public var Hileras = new Array();
 	public var Ancho: Int;
 	
-public function new() 
-{	
-}	
+	public function new() 
+	{	
+		super();
+	}	
 
 	public function Niveles(lvl_numero:Int)
 	{

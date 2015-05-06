@@ -12,7 +12,7 @@ class Bloque extends Sprite
 	{
 		super();
 		this.graphics.beginFill(Textura);
-		this.graphics.drawRoundRectComplex(CoordX, CoordY, 32, 32, 5, 5, 5, 5);
+		this.graphics.drawRoundRectComplex(CoordX+2, CoordY+2, 28, 28, 5, 5, 5, 5);
 		this.graphics.endFill();
 	}
 	

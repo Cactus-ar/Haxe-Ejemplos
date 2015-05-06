@@ -22,22 +22,30 @@ class Nivel extends Sprite
 	private var CoordX:Int;
 	private var CoordY:Int;
 	private var Carga:Cargador;
-	private var Bloques:Bloque;
 	
-	public var Nivel_Actual = new Array<Bloque>();
+	private var Paredes:Bloque;
+	private var Bloques:Bloque;
+	private var Objetivos:Bloque;
+	
+	public var Nivel_Actual_Pared = new Array<Bloque>();
+	public var Nivel_Actual_Bloques = new Array<Bloque>();
+	public var Nivel_Actual_Objetivos = new Array<Bloque>();
+	
+	
 	
 	
 	public function new() 
 	{
-	super();	
+	super();
+
 	}
 	
 	
 	public function Dibujar()
 	{
-	
+
 	Carga = new Cargador();
-	Carga.Niveles(6);		//Que nivel debemos elegir dentro del archivo
+	Carga.Niveles(1);		//Que nivel debemos elegir dentro del archivo
 	
 	var centro:Float;
 	centro = (800 - Carga.Ancho) / 2;
@@ -46,28 +54,49 @@ class Nivel extends Sprite
 	{
 		for (f in 0...i.length) //Por cada caracter dentro de la hilera
 		{
+		
 		switch (i.charAt(f)) 	//Despende del caracter encontrado decidimos que hacer
 		{
+			
 			case " ": Textura = Piso;
+			
 			case "#": Textura = Pared;
+					  Paredes = new Bloque(Textura, CoordX, CoordY);
+					  Nivel_Actual_Pared.push(Paredes);
+					  this.addChild(Paredes);
 			
 			case "@": Textura = PersonajeT;
 					  Personaje_Obj = new Personaje(Textura, CoordX, CoordY);
+					  
 
 			case "$": Textura = BloqueT;
+					  Bloques = new Bloque(Textura, CoordX, CoordY);
+					  Nivel_Actual_Bloques.push(Bloques);
+					  this.addChild(Bloques);
+					  
+					  
+			
 			case ".": Textura = Objetivo;
-		} 
+					  Objetivos = new Bloque(Textura, CoordX, CoordY);
+					  Nivel_Actual_Objetivos.push(Objetivos);
+					  if (Bloques != null)
+					  {
+						this.addChildAt(Objetivos, this.Bloques.numChildren + 1);
+					  }else
+					  {
+						  this.addChild(Objetivos);
+					  }
+					  
+					  
 		
-		//--- 
-		Bloques = new Bloque(Textura, CoordX, CoordY);
-		Nivel_Actual.push(Bloques);
-		this.addChild(Bloques);
+		} 
 		
 		CoordX += 32;
 		}
 		CoordY += 32;
 		CoordX = 0;
 	}
+	
 	this.addChild(Personaje_Obj);
 	}
 	
