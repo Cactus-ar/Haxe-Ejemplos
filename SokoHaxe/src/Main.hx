@@ -5,6 +5,7 @@ import openfl.Lib;
 import openfl.display.Sprite;
 import openfl.events.KeyboardEvent;
 import openfl.events.Event;
+import openfl.utils.Object;
 
 
 
@@ -27,6 +28,9 @@ class Main extends Sprite
 	private	var previoX:Float;
 	private var previoY:Float;
 	private var Puntero:Int;
+	
+	private var Flagi:Int = 0;
+	
 	
 	public function new() 
 	{	
@@ -89,6 +93,7 @@ class Main extends Sprite
 			}
 		Colisiones();
 		Nivel_Completo();
+		//guardar coordenadas para el undo
 		}
 	}
 	
@@ -169,21 +174,29 @@ class Main extends Sprite
 		
 		
 	}
+	
 	private function Nivel_Completo():Void
 	{
-		var r:Int;
+				
+		//var t = Nivel_actual.Nivel_Actual_Bloques[k].getBounds(this);
 		
 		for (k in 0...Nivel_actual.Nivel_Actual_Objetivos.length)
 		{
-			for (i in 0...Nivel_actual.Nivel_Actual_Bloques.length)
+			for (l in 0...Nivel_actual.Nivel_Actual_Bloques.length)
 			{
-				if (Nivel_actual.Nivel_Actual_Objetivos[k].hitTestObject(Nivel_actual.Nivel_Actual_Bloques[i]))
+				if (Nivel_actual.Nivel_Actual_Bloques[l].hitTestObject(Nivel_actual.Nivel_Actual_Objetivos[k]))
 				{
-					trace("sep");
+					++Flagi;
+					
+				}
+				else
+				{
+					
 				}
 			}
+			
 		}
 	
-		
+		trace(Flagi);
 	}
 }

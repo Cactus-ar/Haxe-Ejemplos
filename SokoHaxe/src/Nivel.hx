@@ -1,4 +1,5 @@
 package;
+
 import openfl.display.Sprite;
 import Std;
 
@@ -34,6 +35,8 @@ class Nivel extends Sprite
 	
 	
 	
+	
+	
 	public function new() 
 	{
 	super();
@@ -45,7 +48,7 @@ class Nivel extends Sprite
 	{
 
 	Carga = new Cargador();
-	Carga.Niveles(1);		//Que nivel debemos elegir dentro del archivo
+	Carga.Niveles(10);		//Que nivel debemos elegir dentro del archivo
 	
 	var centro:Float;
 	centro = (800 - Carga.Ancho) / 2;
