@@ -31,7 +31,9 @@ class Menu extends Sprite
 		
 		switch (Opcion) 
 		{
-			case "Nuevo" : trace ("nuevo");
+			case "Nuevo" : var Nuevo = new Main();
+							Nuevo.Nuevo_Juego();
+			
 			
 			case "Niveles" : trace ("Seleccion Niveles");
 			

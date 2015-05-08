@@ -33,10 +33,6 @@ class Nivel extends Sprite
 	public var Nivel_Actual_Objetivos = new Array<Bloque>();
 	
 	
-	
-	
-	
-	
 	public function new() 
 	{
 	super();
@@ -44,14 +40,15 @@ class Nivel extends Sprite
 	}
 	
 	
-	public function Dibujar()
+	public function Dibujar(nivel:Int)
 	{
 
 	Carga = new Cargador();
-	Carga.Niveles(10);		//Que nivel debemos elegir dentro del archivo
+	Carga.Niveles(nivel);		//Que nivel debemos elegir dentro del archivo
 	
 	var centro:Float;
 	centro = (800 - Carga.Ancho) / 2;
+	CoordY = 60; //Alto reservado para el menu
 	
 	for (i in Carga.Hileras) //Por cada hilera dentro del mapa, recorremos la fila
 	{

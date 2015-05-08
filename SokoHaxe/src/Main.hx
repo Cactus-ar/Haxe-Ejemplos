@@ -25,6 +25,7 @@ class Main extends Sprite
 	private var Movimiento_Anterior_y:Float;
 	private var Movimiento_Direccion:String;
 	private var Copia_Bloques: Array<Bloque>;
+	private var Copia_Bloques_fini: Array<Bloque>;
 	private	var previoX:Float;
 	private var previoY:Float;
 	private var Puntero:Int;
@@ -37,24 +38,32 @@ class Main extends Sprite
 		super();
 		
 		
-		Nivel_actual = new Nivel();
-		Nivel_actual.Dibujar();
-		addChild(Nivel_actual);
+		
+		//Inicio = new Menu();
+		//addChild(Inicio);
 	
-	//	Inicio = new Menu();
-	//	addChild(Inicio);
+
+	
 		
 		Tecla_usada = new Array<Bool>();
 		Copia_Bloques = new Array<Bloque>();
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, Tecla_Presionada);
 		stage.addEventListener(KeyboardEvent.KEY_UP, Tecla_Soltada);
 		this.addEventListener(Event.ENTER_FRAME, En_CadaCuadro);
-		
+		Nuevo_Juego();
 	}
 	
 	private function En_CadaCuadro(evento:Event):Void {
 		
 	}	
+	
+	public function Nuevo_Juego()
+	{
+//		Nivel_actual.removeChild(this);
+		Nivel_actual = new Nivel();
+		Nivel_actual.Dibujar(3); //pasamos el nivel
+		addChild(Nivel_actual);		
+	}
 	
 	
 	private function Tecla_Presionada(evento:KeyboardEvent):Void {
@@ -120,7 +129,6 @@ class Main extends Sprite
 			{
 				previoX = Nivel_actual.Nivel_Actual_Bloques[i].x;
 				previoY = Nivel_actual.Nivel_Actual_Bloques[i].y;
-				
 				Copia_Bloques = Nivel_actual.Nivel_Actual_Bloques.slice(0, Nivel_actual.Nivel_Actual_Bloques.length);
 				Copia_Bloques.remove(Nivel_actual.Nivel_Actual_Bloques[i]);
 				Puntero = i;
@@ -177,8 +185,8 @@ class Main extends Sprite
 	
 	private function Nivel_Completo():Void
 	{
-				
-		//var t = Nivel_actual.Nivel_Actual_Bloques[k].getBounds(this);
+		Copia_Bloques_fini = Nivel_actual.Nivel_Actual_Bloques.slice(0, Nivel_actual.Nivel_Actual_Bloques.length);
+		
 		
 		for (k in 0...Nivel_actual.Nivel_Actual_Objetivos.length)
 		{
@@ -186,17 +194,18 @@ class Main extends Sprite
 			{
 				if (Nivel_actual.Nivel_Actual_Bloques[l].hitTestObject(Nivel_actual.Nivel_Actual_Objetivos[k]))
 				{
-					++Flagi;
+					Copia_Bloques_fini.remove(Nivel_actual.Nivel_Actual_Bloques[l]);
+					trace (Copia_Bloques_fini.length);
+					if (Copia_Bloques_fini.length == 0)
+					{
+						trace("FIN");
+					}
 					
 				}
-				else
-				{
-					
-				}
+				
 			}
 			
-		}
-	
-		trace(Flagi);
+		}	
+		Copia_Bloques_fini.splice(0, Copia_Bloques.length); //Borramos la copia del Array
 	}
 }
